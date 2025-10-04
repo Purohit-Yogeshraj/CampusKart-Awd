@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Ad - CampusKart</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/sell.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      #edit-image-preview {
+        margin-top: 10px;
+        display: none;
+      }
+      #edit-image-preview img {
+        max-width: 100%;
+        max-height: 200px;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html"
+          ><img src="images/logo.png" alt="CampusKart Logo"
+        /></a>
+      </div>
+      <ul class="nav-links">
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href="buy.html">Buy</a></li>
+        <li><a class="nav-link" href="sell.html">Sell</a></li>
+        <li>
+          <a class="nav-link" href="index.html#developers-section">About us</a>
+        </li>
+      </ul>
+      <div class="auth-buttons">
+        <a href="auth.html" class="btn-login-signup">Login/Sign Up</a>
+      </div>
+    </nav>
+
+    <div class="page-container">
+      <div class="sell-form">
+        <h2 class="form-header">Edit Your Ad</h2>
+        <form id="edit-ad-form">
+          <input type="hidden" id="ad-id" value="" />
+
+          <div class="form-group">
+            <label><i class="fas fa-tag"></i> Item Title</label>
+            <input type="text" id="edit-title" class="form-control" required />
+          </div>
+
+          <div class="form-group">
+            <label><i class="fas fa-list"></i> Category</label>
+            <select id="edit-category" class="form-control" required>
+              <option value="">Select Category</option>
+              <option value="Books">Books</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Furniture">Furniture</option>
+              <option value="Clothing">Clothing</option>
+              <option value="Others">Others</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label><i class="fas fa-dollar-sign"></i> Price (₹)</label>
+            <input
+              type="number"
+              id="edit-price"
+              class="form-control"
+              min="1"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label><i class="fas fa-phone"></i> Phone Number</label>
+            <input
+              type="tel"
+              id="edit-phone"
+              class="form-control"
+              pattern="[0-9]{10}"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label><i class="fas fa-map-marker-alt"></i> Location</label>
+            <input
+              type="text"
+              id="edit-location"
+              class="form-control"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label><i class="fas fa-comment"></i> Description</label>
+            <textarea
+              id="edit-description"
+              class="form-control"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label><i class="fas fa-image"></i> Current Image</label>
+            <div id="current-image-container">
+              <p>Loading current image...</p>
+            </div>
+            <div><small>Upload new image to replace (optional)</small></div>
+            <input
+              type="file"
+              id="edit-image"
+              class="form-control"
+              accept="image/jpeg,image/png"
+            />
+            <div id="edit-image-preview">
+              <img src="" alt="New Preview" />
+            </div>
+          </div>
+
+          <button type="submit" class="btn-submit">Update Ad</button>
+          <a
+            href="sell.html"
+            style="
+              display: block;
+              text-align: center;
+              margin-top: 15px;
+              color: #38bdf8;
+            "
+            >← Back to My Ads</a
+          >
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <img src="images/logo.png" alt="CampusKart Logo" />
+          </div>
+          <p class="footer-tagline">
+            Empowering students to buy, sell & reuse — right on campus.
+          </p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="buy.html">Buy</a></li>
+            <li><a href="sell.html">Sell</a></li>
+            <li><a href="#how-it-works-section">How It Works</a></li>
+            <li><a href="#developers-section">About Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul class="contact-info">
+            <li>
+              <i class="fas fa-map-marker-alt"></i> CampusKart Inc., Surat.
+            </li>
+            <li><i class="fas fa-envelope"></i> contact@campuskart.edu</li>
+            <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Stay Updated</h4>
+          <p>Get notified about new listings & campus deals.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email" required />
+            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 CampusKart. Built with ❤️ by Students, for Students. |
+          <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a>
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Get ad ID from URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const adId = urlParams.get("id");
+
+      if (!adId) {
+        alert("Ad ID not found");
+        window.location.href = "sell.html";
+      }
+
+      // Load ad data
+      async function loadAd() {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          window.location.href = "auth.html";
+          return;
+        }
+
+        try {
+          const res = await fetch(`/api/listings/${adId}`, {
+            headers: { Authorization: `Bearer ${token}` },
+          });
+          const ad = await res.json();
+
+          if (!res.ok) throw new Error(ad.message || "Failed to load ad");
+
+          document.getElementById("ad-id").value = ad._id;
+          document.getElementById("edit-title").value = ad.title;
+          document.getElementById("edit-category").value = ad.category;
+          document.getElementById("edit-price").value = ad.price;
+          document.getElementById("edit-phone").value = ad.phone;
+          document.getElementById("edit-location").value = ad.location;
+          document.getElementById("edit-description").value = ad.description;
+
+          // Display current image
+          const currentImageContainer = document.getElementById(
+            "current-image-container"
+          );
+          if (ad.image_path) {
+            currentImageContainer.innerHTML = `
+            <img src="${ad.image_path}" 
+                 alt="Current" 
+                 style="max-width:100%; max-height:200px; border-radius:8px; margin:10px 0;">
+          `;
+          } else {
+            currentImageContainer.innerHTML =
+              '<div style="color:#7f8c8d;">No image uploaded</div>';
+          }
+        } catch (err) {
+          alert("Error loading ad: " + err.message);
+          window.location.href = "sell.html";
+        }
+      }
+
+      // Image preview
+      document
+        .getElementById("edit-image")
+        .addEventListener("change", function (e) {
+          const preview = document.getElementById("edit-image-preview");
+          const img = preview.querySelector("img");
+          if (e.target.files[0]) {
+            img.src = URL.createObjectURL(e.target.files[0]);
+            preview.style.display = "block";
+          } else {
+            preview.style.display = "none";
+          }
+        });
+
+      // Form submission
+      document
+        .getElementById("edit-ad-form")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const token = localStorage.getItem("token");
+          if (!token) {
+            window.location.href = "auth.html";
+            return;
+          }
+
+          const id = document.getElementById("ad-id").value;
+          const title = document.getElementById("edit-title").value.trim();
+          const category = document.getElementById("edit-category").value;
+          const price = document.getElementById("edit-price").value;
+          const phone = document.getElementById("edit-phone").value.trim();
+          const location = document
+            .getElementById("edit-location")
+            .value.trim();
+          const description = document
+            .getElementById("edit-description")
+            .value.trim();
+
+          // Validation
+          if (
+            !title ||
+            !category ||
+            !price ||
+            !phone ||
+            !location ||
+            !description
+          ) {
+            alert("❌ Please fill all required fields.");
+            return;
+          }
+
+          if (!/^[0-9]{10}$/.test(phone)) {
+            alert("❌ Phone must be 10 digits (e.g. 9876543210).");
+            return;
+          }
+
+          if (parseFloat(price) <= 0) {
+            alert("❌ Price must be greater than 0.");
+            return;
+          }
+
+          const imageFile = document.getElementById("edit-image").files[0];
+          if (imageFile) {
+            const validTypes = ["image/jpeg", "image/png"];
+            const maxSize = 5 * 1024 * 1024;
+            if (!validTypes.includes(imageFile.type)) {
+              alert("❌ JPG/PNG only.");
+              return;
+            }
+            if (imageFile.size > maxSize) {
+              alert("❌ Image < 5MB.");
+              return;
+            }
+          }
+
+          const formData = new FormData();
+          formData.append("title", title);
+          formData.append("category", category);
+          formData.append("price", price);
+          formData.append("phone", phone);
+          formData.append("location", location);
+          formData.append("description", description);
+          if (imageFile) formData.append("image", imageFile);
+
+          try {
+            const res = await fetch(`/api/listings/${id}`, {
+              method: "PUT",
+              headers: { Authorization: `Bearer ${token}` },
+              body: formData,
+            });
+            const data = await res.json();
+
+            alert(data.message);
+            if (data.success) {
+              window.location.href = "sell.html";
+            }
+          } catch (err) {
+            alert("❌ Error: " + (err.message || err));
+          }
+        });
+
+      // Load ad on page load
+      document.addEventListener("DOMContentLoaded", loadAd);
+    </script>
+  </body>
+</html>

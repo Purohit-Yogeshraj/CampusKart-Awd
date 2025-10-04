@@ -1,0 +1,230 @@
+/* ===== AUTH PAGE STYLES ===== */
+body {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 70%, #38bdf8 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 480px;
+}
+
+.auth-card {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+.auth-logo {
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+.auth-header h2 {
+  color: #0f172a;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.auth-header p {
+  color: #64748b;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.back-home {
+  display: inline-block;
+  margin-top: 5px;
+  color: #38bdf8;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.back-home:hover {
+  text-decoration: underline;
+}
+
+/* Toggle Buttons */
+.auth-toggle {
+  display: flex;
+  background: #f1f5f9;
+  border-radius: 10px;
+  margin: 25px 0;
+  overflow: hidden;
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 14px;
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #475569;
+}
+
+.toggle-btn.active {
+  background: #38bdf8;
+  color: white;
+}
+
+/* Auth Forms */
+.auth-form {
+  display: none;
+  animation: slideIn 0.4s ease;
+}
+
+.auth-form.active {
+  display: block;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.input-group {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #334155;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.input-group i {
+  color: #38bdf8;
+  margin-right: 8px;
+  width: 16px;
+  text-align: center;
+}
+
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group input[type="tel"],
+.input-group input[type="password"],
+.input-group input[type="date"] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+}
+
+.input-group input:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+/* Gender Radio Buttons */
+.gender-group {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+.radio-label input {
+  width: auto;
+  margin: 0;
+}
+
+/* Auth Button */
+.auth-btn {
+  width: 100%;
+  padding: 14px;
+  background: #38bdf8;
+  color: #0f172a;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.auth-btn:hover {
+  background: #0ea5e9;
+  transform: translateY(-2px);
+}
+
+/* Footer Links */
+.auth-footer {
+  margin-top: 25px;
+  font-size: 0.9rem;
+}
+
+.auth-footer a {
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+.auth-footer p {
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 30px 20px;
+  }
+
+  .auth-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .toggle-btn {
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .auth-btn {
+    font-size: 1rem;
+  }
+
+  .gender-group {
+    gap: 10px;
+  }
+
+  .radio-label {
+    font-size: 0.9rem;
+  }
+}

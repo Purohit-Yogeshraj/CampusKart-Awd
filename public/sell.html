@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sell - CampusKart</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/sell.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html"
+          ><img src="images/logo.png" alt="CampusKart Logo"
+        /></a>
+      </div>
+      <ul class="nav-links">
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href="buy.html">Buy</a></li>
+        <li><a class="nav-link active" href="sell.html">Sell</a></li>
+        <li>
+          <a class="nav-link" href="index.html#developers-section">About us</a>
+        </li>
+      </ul>
+      <div class="auth-buttons">
+        <a href="auth.html" class="btn-login-signup">Login/Sign Up</a>
+      </div>
+    </nav>
+
+    <div class="page-container">
+      <!-- Post New Ad Form -->
+      <div class="sell-form">
+        <h2 class="form-header">Post a New Item</h2>
+        <form id="post-ad-form">
+          <div class="form-group">
+            <label><i class="fas fa-tag"></i> Item Title</label>
+            <input
+              type="text"
+              id="ad-title"
+              class="form-control"
+              placeholder="e.g. Physics Textbook"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-list"></i> Category</label>
+            <select id="ad-category" class="form-control" required>
+              <option value="">Select Category</option>
+              <option>Books</option>
+              <option>Electronics</option>
+              <option>Furniture</option>
+              <option>Clothing</option>
+              <option>Others</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-dollar-sign"></i> Price (₹)</label>
+            <input
+              type="number"
+              id="ad-price"
+              class="form-control"
+              placeholder="e.g. 500"
+              min="1"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-phone"></i> Your Phone Number</label>
+            <input
+              type="tel"
+              id="ad-phone"
+              class="form-control"
+              placeholder="e.g. 9876543210"
+              pattern="[0-9]{10}"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-map-marker-alt"></i> Location</label>
+            <input
+              type="text"
+              id="ad-location"
+              class="form-control"
+              placeholder="e.g. Hostel A, Block 3"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-comment"></i> Description</label>
+            <textarea
+              id="ad-description"
+              class="form-control"
+              rows="4"
+              placeholder="Describe condition, reason for selling, etc."
+              required
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-image"></i> Item Photo (Optional)</label>
+            <input
+              type="file"
+              id="ad-image"
+              class="form-control"
+              accept="image/jpeg,image/png"
+            />
+            <div id="image-preview">
+              <img src="" alt="Preview" />
+            </div>
+          </div>
+          <button type="submit" class="btn-submit">Post Ad</button>
+        </form>
+      </div>
+
+      <!-- My Ads Section -->
+      <div class="my-ads-section">
+        <h2 class="my-ads-header">Your Posted Ads</h2>
+        <div id="my-ads-container">
+          <p>Loading your ads...</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <img src="images/logo.png" alt="CampusKart Logo" />
+          </div>
+          <p class="footer-tagline">
+            Empowering students to buy, sell & reuse — right on campus.
+          </p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="buy.html">Buy</a></li>
+            <li><a href="sell.html">Sell</a></li>
+            <li><a href="#how-it-works-section">How It Works</a></li>
+            <li><a href="#developers-section">About Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul class="contact-info">
+            <li>
+              <i class="fas fa-map-marker-alt"></i> CampusKart Inc., Surat.
+            </li>
+            <li><i class="fas fa-envelope"></i> contact@campuskart.edu</li>
+            <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Stay Updated</h4>
+          <p>Get notified about new listings & campus deals.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email" required />
+            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 CampusKart. Built with ❤️ by Students, for Students. |
+          <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/sell.js"></script>
+  </body>
+</html>
