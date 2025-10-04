@@ -1,15 +1,15 @@
-// routes/auth.js
 const express = require("express");
 const bcrypt = require("bcryptjs");
 const User = require("../models/User");
 
 const router = express.Router();
 
+// POST /api/auth/signup
 router.post("/signup", async (req, res) => {
   try {
     const { username, gender, dob, email, contact, pass1, pass2 } = req.body;
 
-    // 🔸 Validation
+    // Validation
     if (
       !username ||
       !gender ||
@@ -33,10 +33,10 @@ router.post("/signup", async (req, res) => {
     if (!/^[0-9]{10}$/.test(contact)) {
       return res
         .status(400)
-        .json({ success: false, message: "Phone must be 10 digits" });
+        .json({ success: false, message: "Phone number must be 10 digits" });
     }
 
-    // 🔸 Check if email already exists
+    // Check if email already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res
@@ -44,14 +44,14 @@ router.post("/signup", async (req, res) => {
         .json({ success: false, message: "Email already registered" });
     }
 
-    // 🔸 Hash password
+    // Hash password
     const hashedPassword = await bcrypt.hash(pass1, 12);
 
-    // 🔸 Create user
+    // Create new user
     const user = new User({
       username,
       gender,
-      dob: new Date(dob), // Ensure it's a Date object
+      dob: new Date(dob),
       email,
       contact,
       password: hashedPassword,
@@ -64,12 +64,44 @@ router.post("/signup", async (req, res) => {
       .json({ success: true, message: "Registration successful!" });
   } catch (err) {
     console.error("Signup error:", err);
-    // 🔸 Send specific error for debugging
-    res.status(500).json({
-      success: false,
-      message: "Registration failed. Please try again.",
-      error: err.message, // 👈 Remove this in production!
+    res
+      .status(500)
+      .json({
+        success: false,
+        message: "Registration failed. Please try again.",
+      });
+  }
+});
+
+// POST /api/auth/login
+router.post("/login", async (req, res) => {
+  try {
+    const { email, pass } = req.body;
+
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res
+        .status(401)
+        .json({ success: false, message: "Invalid email or password" });
+    }
+
+    const isMatch = await bcrypt.compare(pass, user.password);
+    if (!isMatch) {
+      return res
+        .status(401)
+        .json({ success: false, message: "Invalid email or password" });
+    }
+
+    res.json({
+      success: true,
+      message: "Login successful!",
+      username: user.username,
     });
+  } catch (err) {
+    console.error("Login error:", err);
+    res
+      .status(500)
+      .json({ success: false, message: "Login failed. Please try again." });
   }
 });
 
